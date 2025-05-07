@@ -1,0 +1,83 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 18,
+  "spacing": 5, 
+  "margin": "1px 2px",
+  "modules-left": ["clock#time", "clock#date", "clock#day"],
+  "modules-center": ["hyprland/workspaces"],
+  "modules-right": ["cpu", "memory", "tray", "backlight", "pulseaudio", "battery", "custom/power"],
+
+  "clock#time": {
+    "format": "{:%H:%M}",
+    "interval": 60
+  },
+
+  "clock#date": {
+    "format": "{:%d/%m/%Y}",
+    "interval": 60
+  },
+
+  "clock#day": {
+    "format": "{:%A}",
+    "interval": 3600
+  },
+  
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": false,
+    "on-click": "activate",
+    "format": "{icon}",
+    "format-icons": {
+      "active": "●",
+      "default": "○"
+    }
+  },
+
+  "cpu": {
+    "interval": 1,
+    "format": "CPU: {usage}% ",
+    "tooltip": true
+  },
+  
+  "memory": {
+    "interval": 2,
+    "format": "Mem: {percentage}% ",
+    "tooltip": true
+  },
+
+  "backlight": {
+    "format": "{icon} {percent}%",
+    "format-icons": [
+      ""
+    ],
+    "tooltip": true
+  },
+
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "  Muted",
+    "format-icons": {
+      "headphone": "",
+      "handsfree": "",
+      "default": ["","",""]
+    },
+    "tooltip": true,
+  },
+
+  "battery": {
+    "format": "{icon} {capacity}%",
+    "format-charging": " {capacity}% {time}",
+    "format-plugged": " {capacity}%",
+    "format-defualt": "{icon} {capacity}%",
+    "format-icons": ["","","","",""],
+    "tooltip": true,
+  },
+
+  "custom/power": {
+    "format": "⏻",
+    "tooltip": "Power Menu",
+    "on-click": "~/.config/waybar/power-menu.sh"
+  },
+
+}

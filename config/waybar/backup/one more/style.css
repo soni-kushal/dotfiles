@@ -1,0 +1,59 @@
+/* Basic Waybar Style */
+* {
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif; /* You can change this to your preferred font */
+    font-size: 10pt; /* Adjust font size as needed */
+    color: #f0f0f0; /* Light grey text */
+}
+
+window#waybar {
+    background-color: #333333; /* Dark grey background */
+    opacity: 0.9; /* Optional: Add some transparency */
+}
+
+/* Styling for individual modules (optional, but good to have) */
+#workspaces button {
+    padding: 0 8px;
+    background-color: transparent;
+    color: #f0f0f0;
+}
+
+#workspaces button.focused {
+    background-color: #5e81ac; /* A nice blue for the focused workspace */
+    color: #ffffff;
+}
+
+#workspaces button.urgent {
+    background-color: #bf616a; /* Red for urgent workspaces */
+    color: #ffffff;
+}
+
+#custom-datetime {
+    padding: 0 10px;
+}
+
+#group-system,
+#tray,
+#group-audio-power {
+    padding: 0 8px;
+}
+
+#disk,
+#cpu,
+#memory,
+#volume,
+#backlight,
+#battery {
+    padding: 0 8px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: none; /* Disable passive state color change */
+}
+
+#tray > .needs-attention {
+    color: #ebcb8b; /* Yellow for attention icons */
+}

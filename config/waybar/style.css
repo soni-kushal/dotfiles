@@ -1,0 +1,68 @@
+/* Overall Waybar window */
+window#waybar {
+  background-color: transparent; /* Make the background transparent */
+  font-family: "Courier Prime Bold", monospace; /* Set the font */
+  font-weight: bold; /* Make the font bold */
+  color: #ffffff;
+  /* Remove default spacing as we'll add it with module margins */
+  /* spacing: 5px; */
+  margin: 1px 20px; /* Apply the margin from your config */
+}
+
+/* Style for all modules */
+.module {
+  background-color: rgba(0, 0, 0, 0.6); /* Black background with 60% opacity */
+  border: 1px solid white; /* One pixel wide white border */
+  padding: 0.0em 0.8em; /* Add some padding inside each module */
+  margin: 0 1px; /* Add some horizontal margin between modules */
+}
+
+/* Target specific modules if needed for further customization */
+#clock-time,
+#clock-date,
+#clock-day,
+#workspaces,
+#cpu,
+#memory,
+#tray,
+#backlight,
+#pulseaudio,
+#battery,
+#custom-power {
+  /* You can add more specific styles here if needed */
+}
+
+/* Style the workspaces module */
+#workspaces button {
+  padding: 0 0.1em; /* Add some horizontal padding to workspace buttons */
+  color: #ffffff; /* Default text color for workspaces */
+}
+
+#workspaces button.focused {
+  background-color: #ffffff; /* White background for the focused workspace */
+  color: #000000; /* Black text for the focused workspace */
+}
+
+#workspaces button.active {
+  color: #a678d3; /* Example: Different color for active but not focused */
+}
+
+/* Style the tray icons */
+#tray > .passive {
+  -gtk-icon-shadow: none;
+  padding: 0 0.3em;
+  margin: 0;
+}
+
+#tray > .needs-attention {
+  background-color: #ff0000;
+  color: #ffffff;
+  padding: 0 0.3em;
+  margin: 0;
+}
+
+/* Example: Style for the power button */
+#custom-power {
+  color: #ff6666; /* Example: Red color for the power icon */
+  padding: 0 0.8em; /* Adjust padding for the power icon */
+}
