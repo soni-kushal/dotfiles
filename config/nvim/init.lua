@@ -124,6 +124,15 @@ vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
   end,
 })
 
+-- Turn off line numbering for text files
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "*.txt",
+  callback = function()
+    vim.opt_local.number = false
+    vim.opt_local.relativenumber = false
+  end,
+})
+
 -- Auto-open file tree if no file is specified
 vim.api.nvim_create_autocmd("VimEnter", {
   callback = function()

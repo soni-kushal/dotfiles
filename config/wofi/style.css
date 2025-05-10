@@ -1,0 +1,43 @@
+
+window {
+    background-color: rgba(0, 0, 0, 0.7);
+    font-family: "Courier Prime", monospace;
+    font-size: 16px;
+    border: 2px solid white;
+    border-radius: 0px;
+    padding: 10px;
+}
+
+#input {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: 2px solid white; /* white border around input */
+    border-radius: 0px;
+    padding: 5px;
+    margin-bottom: 10px;
+    outline: none; /* removes blue focus ring */
+    box-shadow: none; /* removes extra glow or shadow on focus */
+    font-size: 16px;
+}
+
+#entry {
+    background-color: transparent;
+    color: white;
+    padding: 5px;
+    border-radius: 0px;
+    font-size: 16px;
+}
+
+#entry:selected {
+    background-color: rgba(255, 255, 255, 0.3);
+    color: white;
+    border-radius: 0px;
+}
+
+/* Ensure dropdown menus also follow theme */
+#outer-box,
+#scroll {
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 0px;
+    border: none;
+}

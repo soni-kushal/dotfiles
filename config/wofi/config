@@ -1,0 +1,7 @@
+width=500
+height=300
+location=center
+show=drun
+prompt=Run:
+hide_scroll=true
+style=~/.config/wofi/style.css
