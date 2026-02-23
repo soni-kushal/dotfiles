@@ -1,0 +1,151 @@
+{
+	"layer": "top",
+	"position": "top",
+	"height": 32,
+	"spacing": 3,
+	"margin": "0px 0px 0px 0px",
+
+	"modules-left": ["custom/launcher","tray","niri/window"],
+	"modules-center": ["clock"],
+	"modules-right": ["cpu","temperature","memory","network","custom/extmon","backlight","pulseaudio","custom/tlp","battery","custom/power"],
+
+	"backlight": {
+		"format": "{icon} {percent}%",
+		"format-icons": ["󰃞","󰃝","󰃟","󰃠"],
+		"tooltip": false
+	},
+
+	"battery": {
+		"states":{
+			"good": 95,
+			"warning": 30,
+			"critical": 15
+		},
+		"format": "{icon} {capacity}%",
+		"format-full": "{icon} {capacity}%",
+		"format-charging": " {icon} {capacity}%",
+		"format-plugged": " {icon} {capacity}%",
+		"format-icons": ["󰂎","󰁺","󰁻","󰁼","󰁽","󰁾","󰁿","󰂀","󰂁","󰂂","󰁹"],
+	},
+
+	"clock": {
+		"format-alt": "[{:%H:%M}]",
+		"format": "{:%H:%M - %a, %b %d}",
+		"tooltip-format": "<big>{:%A %d-%m-%y}</big>\n<tt>{calendar}</tt>"
+	},
+
+	"cpu": {
+		"format": " {usage}%",
+		"interval": 10
+	},
+
+	"custom/extmon": {
+		"format": "{}",
+		"return-type": "json",
+		"exec": "~/.local/bin/extmon.sh",
+		"on-scroll-up": "~/.local/bin/extmon.sh up",
+		"on-scroll-down": "~/.local/bin/extmon.sh down",
+		"on-click": "~/.local/bin/displaymenu.sh",
+		"interval": "once",
+		"signal": 10
+	},
+
+	"custom/launcher": {
+		"format": "󰣇",
+		"on-click": "fuzzel --anchor top-left --x-margin 10 --y-margin 10 --cache /dev/null",
+		"tooltip": false
+	},
+
+	// "mpd": {
+	// 	"format": "{stateIcon} {artist} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ",
+	// 	"format-disconnected": "Disconnected ",
+	// 	"format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+	// 	"unknown-tag": "N/A",
+	// 	"interval": 2,
+	// 	"consume-icons": {
+	// 		"on": " "
+	// 	},
+	// 	"random-icons": {
+	// 		"off": "<span color=\"#f53c3c\"></span> ",
+	// 		"on": " "
+	// 	},
+	// 	"repeat-icons": {
+	// 		"on": " "
+	// 	},
+	// 	"single-icons": {
+	// 		"on": " "
+	// 	},
+	// 	"state-icons": {
+	// 		"paused": "",
+	// 		"playing": ""
+	// 	},
+	// 	"tooltip-format": "MPD (connected)",
+	// 	"tooltip-format-disconnected": "MPD (disconnected)",
+	// // Click actions
+	// "on-click": "rmpc togglepause",
+	// "on-click-right": "rmpc next",
+	// "on-click-middle": "rmpc prev",
+	// "on-scroll-up": "rmpc volume +5",
+	// "on-scroll-down": "rmpc volume -5"
+	// },
+
+	"custom/power": {
+		"format": "[]",
+		"on-click": "~/.local/bin/powermenu.sh",
+		"tooltip": false
+	},
+
+	"custom/tlp": {
+		"exec": "~/.local/bin/powerprofileicon.sh",
+		"interval": 30,
+		"format": "{}",
+		"tooltip": false,
+		"on-click": "~/.local/bin/batteryoptions.sh"
+	},
+
+	"memory": {
+		"format": " {}%",
+		"interval": 15
+	},
+
+	"network": {
+		"format-wifi": " {essid} {signalStrength}%",
+		"format-ethernet": "󰈀 {ipaddr}/{cidr}",
+		"tooltip-format": "{ifname}: {ipaddr}/{cidr} via {gwaddr} 󰩠",
+		"format-linked": "{ifname} (No IP) ",
+		"format-disconnected": "󰌙 Disconnected",
+	},
+
+	"niri/window": {
+		"tooltip": false,
+		"max-length": 70,
+	},
+
+	"pulseaudio": {
+		"format": "{icon} {volume}%",
+		"format-bluetooth": "{icon} {volume}% 󰂰",
+		"format-bluetooth-muted": " muted{icon}󰂰",
+		"format-muted": " muted",
+		"format-icons": {
+			"headphone": "",
+			"hands-free": "󱡏",
+			"headset": "",
+			"phone": "",
+			"portable": "",
+			"car": "",
+			"default": ["", "", ""]
+		},
+		"on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+	},
+
+	"temperature": {
+		"critical-threshold": 75,
+		"format-critical": "{temperatureC}°C ",
+		"format": "{temperatureC}°C "
+	},
+
+	"tray": {
+		"spacing": 8
+	}
+
+}
