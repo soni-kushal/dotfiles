@@ -202,8 +202,8 @@ binds {
 	Mod+Up    { focus-window-up; }
 	Mod+Right { focus-column-right; }
 	Mod+H     { focus-column-left; }
-	Mod+U     { focus-window-down; }
-	Mod+I     { focus-window-up; }
+	//Mod+U     { focus-window-down; }
+	//Mod+I     { focus-window-up; }
 	Mod+L     { focus-column-right; }
 
 	//Move windows around
