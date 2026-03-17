@@ -1,2 +1,2 @@
 [Default]
-TERMINAL=alacritty.desktop
+terminal=kitty.desktop

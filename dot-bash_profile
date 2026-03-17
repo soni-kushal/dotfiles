@@ -4,6 +4,6 @@
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
-TERMINAL=alacritty
+TERMINAL=kitty
 
 . "$HOME/.local/bin/env"
