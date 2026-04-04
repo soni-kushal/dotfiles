@@ -40,12 +40,25 @@ output "eDP-1" {
 	mode "1920x1080@60.033"
 	scale 1
 	transform "normal"
+	position x=320 y=1440
+}
+
+output "DP-2" {
+	mode "2560x1440@74.971"
+	scale 1
+	transform "normal"
 	position x=0 y=0
+}
+output "HDMI-A-2" {
+	mode "1024x768@60.00"
+	scale 1
+	transform "normal"
+//	position x=0 y=0
 }
 
 layout {
 
-	gaps 10
+	gaps 0
 
 	background-color "transparent"
 
@@ -69,7 +82,7 @@ layout {
 
 		border {
 			on
-			width 3
+			width 4
 			active-color "#ffffff"
 			inactive-color "#404040"
 			urgent-color "#9b0000"
@@ -77,10 +90,10 @@ layout {
 
 		shadow {
 			on
-			softness 30
-			spread 5
+			softness 50
+			spread 6
 			offset x=0 y=5
-			color "#0007"
+			color "#0009"
 		}
 
 		struts {
@@ -102,6 +115,7 @@ overview {
 
 environment {
 	XDG_MENU_PREFIX "arch-"
+	TERMINAL "alacritty"
 }
 
 layer-rule {
@@ -155,7 +169,7 @@ binds {
 	Mod+N hotkey-overlay-title="Open editor: Neovim" {  spawn "alacritty" "-e" "tmux" "new-session" "-A" "-s" "nvim" "nvim" \
 		";" "set-option" "-t" "nvim" "status" "off";
 	}
-	Mod+E hotkey-overlay-title="File Explorer: Nautilus" { spawn "nautilus"; }
+	Mod+E hotkey-overlay-title="File Explorer: Dolphin" { spawn "dolphin"; }
 	Mod+B hotkey-overlay-title="New Window: Zen-Browser" { spawn "zen-browser"; }
 	Mod+P hotkey-overlay-title="New Private Window: Zen-Browser" { spawn "zen-browser" "--private-window"; }
 	Mod+M hotkey-overlay-title="Music: rmpc" { spawn "alacritty" "-e" "rmpc"; }
@@ -163,6 +177,9 @@ binds {
 
 	//Other scripts
 	Mod+D { spawn-sh "/home/billu/.local/bin/dictionary.sh"; }
+	Mod+Space { spawn-sh "/home/billu/.local/bin/filelaunch.sh"; }
+	XF86Display { spawn-sh "/home/billu/.local/bin/displaymenu.sh"; }
+	XF86Tools { spawn-sh "/home/billu/.local/bin/reduce_gamma.sh"; }
 
 	//Volume controls
 	XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02+ -l 1.0"; }
@@ -171,7 +188,7 @@ binds {
 	XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
 
 	//Media keys mapping using playerctl.
-	XF86AudioPlay        allow-when-locked=true { spawn-sh "playerctl play-pause"; }
+	XF86Keyboard allow-when-locked=true { spawn-sh "playerctl play-pause"; }
 	XF86AudioStop        allow-when-locked=true { spawn-sh "playerctl stop"; }
 	XF86AudioPrev        allow-when-locked=true { spawn-sh "playerctl previous"; }
 	XF86AudioNext        allow-when-locked=true { spawn-sh "playerctl next"; }

@@ -4,11 +4,11 @@ OPTIONS="\
 Performance
 Balanced
 Power Saver
-Charge up to 90% (temporary)
-Reset charge threshold to 70%
+Charge to full capacity (temporary)
+Reset charge threshold to 80%
 "
 
-CHOICE=$(echo -e "$OPTIONS" | fuzzel --dmenu --prompt "Power Options:" --lines=5 --width=30)
+CHOICE=$(echo -e "$OPTIONS" | fuzzel --dmenu --prompt "Power Options:" --lines=5 --width=35)
 
 case "$CHOICE" in
 	Performance)
@@ -23,13 +23,13 @@ case "$CHOICE" in
 		tlpctl set power-saver
 		notify-send "Power Profile:" "Power saver profile enabled"
 		;;
-	"Charge up to 90% (temporary)")
-		pkexec tlp setcharge 85 90
-		notify-send "Power Management" "Charging temporarily allowed up to 90%"
+	"Charge to full capacity (temporary)")
+		pkexec tlp fullcharge
+		notify-send "Power Management" "Charging temporarily allowed to full capacity%"
 		;;
-	"Reset charge threshold to 70%")
+	"Reset charge threshold to 80%")
 		pkexec tlp setcharge
-		notify-send "Power Management" "Charging limit reset to 70%"
+		notify-send "Power Management" "Charging limit reset to 80%"
 		;;
 	*)
 	exit 0

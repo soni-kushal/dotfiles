@@ -13,7 +13,7 @@ else
 fi
 
 # 3. Launch Fuzzel
-CHOICE=$(echo -e "$OPTIONS" | fuzzel --dmenu -p "Display Setup: ")
+CHOICE=$(echo -e "$OPTIONS" | fuzzel --dmenu -p "Display Setup: " --lines=4 --width=30)
 
 # 4. Action Logic
 case "$CHOICE" in
