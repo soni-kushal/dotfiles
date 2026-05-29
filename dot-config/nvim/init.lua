@@ -41,7 +41,7 @@ vim.o.list = true -- set how whitespace characters show
 vim.opt.listchars = { tab = "⇥ ", trail = "·", nbsp = "␣" }
 vim.o.inccommand = "split" -- preview substitutions live, as you type
 vim.o.cursorline = true -- show which line your cursor is on
-vim.o.scrolloff = 10 -- min number of lines to keep above/below the cursor
+vim.o.scrolloff = 0 -- min number of lines to keep above/below the cursor
 vim.o.confirm = true -- confirmation when things would fail because of unsaved changes
 vim.o.hidden = true -- allows unsaved file to sit in buffer
 
@@ -141,6 +141,15 @@ require("lazy").setup({
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()
 			require("nvim-tree").setup({
+				filesystem_watchers = {
+					enable = true,
+					debounce_delay = 50,
+					ignore_dirs = {
+						"Zotero",
+						"node_modules",
+						".git",
+					},
+				},
 				view = {
 					width = 30,
 					side = "left",
@@ -192,7 +201,13 @@ require("lazy").setup({
 
 	{ -- R Integration Plugin (nvim-R)
 		"jalvesaq/Nvim-R",
-		config = function() end,
+		lazy = false,
+		init = function()
+			vim.g.R_assign = 0
+			vim.g.R_set_width = 1
+			vim.g.R_ext_term = 0
+			vim.g.R_editing_mode = "v"
+		end,
 	},
 
 	{ -- UFO for line folding
@@ -524,6 +539,17 @@ require("lazy").setup({
 		end,
 	},
 
+	{
+		"jmbuhr/telescope-zotero.nvim",
+		dependencies = {
+			{ "nvim-telescope/telescope.nvim" },
+			{ "kkharji/sqlite.lua" },
+		},
+		config = function()
+			require("telescope").load_extension("zotero")
+		end,
+	},
+
 	-- Inside your require("lazy").setup({ ... }) block
 	{
 		"nvim-lualine/lualine.nvim",
@@ -592,6 +618,7 @@ require("lazy").setup({
 				"vimdoc",
 				"python",
 				"rust",
+				"r",
 			},
 			-- Autoinstall languages that are not installed
 			auto_install = true,

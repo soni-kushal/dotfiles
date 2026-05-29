@@ -1,12 +1,12 @@
 # Laptop only
 profile laptop {
-	output eDP-1 enable mode 1920x1080#60.033Hz position 0,0 scale 1
+	output eDP-1 enable mode 1920x1080@60.033Hz position 0,0 scale 1
 }
 
 # Dual display
 profile dual {
 	output DP-2 enable mode 2560x1440@74.971Hz position 0,0 scale 1
-	output eDP-1 enable mode 1920x1080#60.033Hz position 320,1440 scale 1
+	output eDP-1 enable mode 1920x1080@60.033Hz position 320,1440 scale 1
 }
 
 # External monitor only (docked)
