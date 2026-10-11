@@ -1,0 +1,15 @@
+# Private keys and credentials
+.ssh/
+.aws/
+.netrc
+.npmrc
+
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# Backup and temporary files
+*.bak
+*.swp
+*~

@@ -1,0 +1,11 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Helium New Window
+Comment=Browse the web
+Exec=/home/billu/Applications/helium-0.19.2.1-x86_64.AppImage %U
+Terminal=false
+Categories=Network;WebBrowser;
+StartupNotify=true
+MimeType=x-scheme-handler/unknown;x-scheme-handler/about;x-scheme-handler/https;x-scheme-handler/http;text/html;

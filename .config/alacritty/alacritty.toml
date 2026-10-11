@@ -1,0 +1,13 @@
+[font]
+
+normal = { family = "Hasklug Nerd Font" }
+
+size = 13.0
+
+[colors.primary]
+
+background = "#0c0d12"
+
+[window]
+
+opacity = 0.85
