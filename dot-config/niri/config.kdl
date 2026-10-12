@@ -147,7 +147,7 @@ window-rule {
 
 spawn-at-startup "dbus-update-activation-environment" "--systemd" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP=niri"
 spawn-at-startup "swayidle" "-w" "before-sleep" "swaylock -f" "-c" "191623"
-spawn-at-startup "swaybg" "-i" "/home/billu/Pictures/dumb_ways_to_die.png" "-m" "fill"
+spawn-at-startup "swaybg" "-i" "/home/billu/Pictures/wallpaper.jpg" "-m" "fill"
 spawn-at-startup "waybar"
 spawn-at-startup "/usr/lib/polkit-kde-authentication-agent-1"
 
