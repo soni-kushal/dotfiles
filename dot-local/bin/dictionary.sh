@@ -1,6 +1,6 @@
 #!/bin/bash
 
-alacritty -o "font.size=14" --class "sdcv-popup" --title "Dictionary Lookup" -e bash -c "
+$TERMINAL -o "font.size=14" --class "sdcv-popup" --title "Dictionary Lookup" -e bash -c "
     # Prompt the user for input
     printf 'Enter word to look up: '
     read -r word

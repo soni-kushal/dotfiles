@@ -1,0 +1,6 @@
+[Wallet]
+Default Wallet=thinkcar
+First Use=false
+
+[org.freedesktop.secrets]
+apiEnabled=true

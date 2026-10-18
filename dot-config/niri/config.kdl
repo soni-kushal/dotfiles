@@ -61,7 +61,7 @@ output "DP-2" {
 
 layout {
 
-	gaps 10
+	gaps 5
 
 	background-color "transparent"
 
@@ -124,6 +124,8 @@ blur {
 }
 
 environment {
+	QT_QPA_PLATFORMTHEME "kde"
+	GTK_USE_PORTAL "1"
 	XDG_MENU_PREFIX "arch-"
 	TERMINAL "kitty"
 }
@@ -147,7 +149,7 @@ window-rule {
 
 spawn-at-startup "dbus-update-activation-environment" "--systemd" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP=niri"
 spawn-at-startup "swayidle" "-w" "before-sleep" "swaylock -f" "-c" "191623"
-spawn-at-startup "swaybg" "-i" "/home/billu/Pictures/wallpaper.jpg" "-m" "fill"
+spawn-at-startup "swaybg" "-i" "/home/billu/Pictures/wallpapers/dawggie.jpg" "-m" "fill"
 spawn-at-startup "waybar"
 spawn-at-startup "/usr/lib/polkit-kde-authentication-agent-1"
 
@@ -180,8 +182,8 @@ binds {
 		";" "set-option" "-t" "nvim" "status" "off";
 	}
 	Mod+E hotkey-overlay-title="File Explorer: Dolphin" { spawn "dolphin"; }
-	Mod+B hotkey-overlay-title="New Window: Helium-Browser" { spawn "~/Applications/helium-0.19.2.1-x86_64.AppImage"; }
-	Mod+P hotkey-overlay-title="New Incognito Window: Helium-Browser" { spawn "~/Applications/helium-0.19.2.1-x86_64.AppImage" "--incognito"; }
+	Mod+B hotkey-overlay-title="New Window: Helium Browser" { spawn "helium-browser"; }
+	Mod+P hotkey-overlay-title="New Incognito Window: Helium Browser" { spawn "helium-browser" "--incognito"; }
 	Mod+M hotkey-overlay-title="Music: rmpc" { spawn "kitty" "-e" "rmpc"; }
 
 
@@ -204,8 +206,8 @@ binds {
 	XF86AudioNext        allow-when-locked=true { spawn-sh "playerctl next"; }
 
 	//Brightness key mappings for brightnessctl.
-	XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+2%"; }
-	XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "2%-"; }
+	XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+5%"; }
+	XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "5%-"; }
 
 	//Window management
 	Mod+Q repeat=false { close-window; }

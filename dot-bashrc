@@ -15,5 +15,6 @@ export QT_QPA_PLATFORM=wayland
 export GDK_BACKEND=wayland
 export CLUTTER_BACKEND=wayland
 export SDL_VIDEODRIVER=wayland
+export TERMINAL=kitty
 
 fastfetch
