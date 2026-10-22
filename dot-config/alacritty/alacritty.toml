@@ -2,7 +2,7 @@
 
 normal = { family = "Hasklug Nerd Font" }
 
-size = 13.0
+size = 14
 
 [colors.primary]
 
