@@ -730,6 +730,40 @@ vim.keymap.set("n", "<leader>z", ":ZenMode<CR>", { noremap = true, silent = true
 -- set leader and l to toggle twilight
 vim.keymap.set("n", "<leader>l", ":Twilight<CR>", { noremap = true, silent = true })
 
+-- set leader and g to launch lazygit in a floating terminal, rooted in the folder of the current buffer
+local lazygit_group = vim.api.nvim_create_augroup("lazygit-float", { clear = true })
+-- close the floating window when lazygit exits (press q inside lazygit to leave)
+vim.api.nvim_create_autocmd("TermClose", {
+	group = lazygit_group,
+	callback = function(args)
+		local win = vim.fn.bufwinid(args.buf)
+		if win ~= -1 and vim.api.nvim_win_get_config(win).relative ~= "" then
+			vim.api.nvim_win_close(win, true)
+		end
+	end,
+})
+vim.keymap.set("n", "<leader>g", function()
+	local launch_dir = vim.uv.cwd()
+	local file = vim.api.nvim_buf_get_name(0)
+	if file ~= "" then
+		local dir = vim.fs.dirname(vim.fs.normalize(file))
+		if vim.uv.fs_stat(dir) then
+			launch_dir = dir
+		end
+	end
+	local width = math.floor(vim.o.columns * 0.9)
+	local height = math.floor(vim.o.lines * 0.9)
+	local win = vim.api.nvim_open_win(vim.api.nvim_create_buf(false, true), true, {
+		relative = "editor",
+		width = width,
+		height = height,
+		col = math.floor((vim.o.columns - width) / 2),
+		row = math.floor((vim.o.lines - height) / 2),
+		border = "rounded",
+	})
+	vim.fn.jobstart("lazygit", { term = true, cwd = launch_dir })
+end, { desc = "Lazy[G]it in current folder" })
+
 -- Toggle between Day (Kanagawa Lotus) and Night (Tokyonight)
 vim.keymap.set("n", "<leader>c", function()
 	if vim.g.colors_name == "tokyonight-night" then
