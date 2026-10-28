@@ -39,7 +39,9 @@ input {
 }
 
 output "eDP-1" {
-	mode "1920x1080@60.033"
+	// mode "1920x1080@60.033" //thinkpad
+	mode "1920x1080@59.990" //g14
+	// mode "1920x1080@143.981" //g14 high refresh
 	scale 1
 	transform "normal"
 	position x=0 y=0
@@ -61,7 +63,7 @@ output "DP-2" {
 
 layout {
 
-	gaps 5
+	gaps 7
 
 	background-color "transparent"
 
@@ -85,7 +87,7 @@ layout {
 
 		border {
 			on
-			width 3
+			width 2
 			active-color "#ffffff"
 			inactive-color "#404040"
 			urgent-color "#9b0000"
@@ -149,7 +151,7 @@ window-rule {
 
 spawn-at-startup "dbus-update-activation-environment" "--systemd" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP=niri"
 spawn-at-startup "swayidle" "-w" "before-sleep" "swaylock -f" "-c" "191623"
-spawn-at-startup "swaybg" "-i" "/home/billu/Pictures/wallpapers/dawggie.jpg" "-m" "fill"
+spawn-at-startup "swaybg" "-i" "/home/billu/Pictures/wallpapers/snowy_mountain.jpg" "-m" "fill"
 spawn-at-startup "waybar"
 spawn-at-startup "/usr/lib/polkit-kde-authentication-agent-1"
 
@@ -182,8 +184,10 @@ binds {
 		";" "set-option" "-t" "nvim" "status" "off";
 	}
 	Mod+E hotkey-overlay-title="File Explorer: Dolphin" { spawn "dolphin"; }
-	Mod+B hotkey-overlay-title="New Window: Helium Browser" { spawn "helium-browser"; }
-	Mod+P hotkey-overlay-title="New Incognito Window: Helium Browser" { spawn "helium-browser" "--incognito"; }
+	// Mod+B hotkey-overlay-title="New Window: Helium Browser" { spawn "helium-browser"; }
+	Mod+B hotkey-overlay-title="New Window: Zen Browser" { spawn "zen-browser"; }
+	// Mod+P hotkey-overlay-title="New Incognito Window: Helium Browser" { spawn "helium-browser" "--incognito"; }
+	Mod+P hotkey-overlay-title="New Private Window: Zen Browser" { spawn "zen-browser" "--private-window"; }
 	Mod+M hotkey-overlay-title="Music: rmpc" { spawn "kitty" "-e" "rmpc"; }
 
 
@@ -204,6 +208,7 @@ binds {
 	XF86AudioStop        allow-when-locked=true { spawn-sh "playerctl stop"; }
 	XF86AudioPrev        allow-when-locked=true { spawn-sh "playerctl previous"; }
 	XF86AudioNext        allow-when-locked=true { spawn-sh "playerctl next"; }
+	XF86AudioPlay        allow-when-locked=true { spawn-sh "playerctl play-pause"; }
 
 	//Brightness key mappings for brightnessctl.
 	XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+5%"; }
