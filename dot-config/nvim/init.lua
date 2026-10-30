@@ -637,6 +637,8 @@ require("lazy").setup({
 
 	{ "rebelot/kanagawa.nvim", name = "kanagawa", priority = 1000 },
 
+	{ "miikanissi/modus-themes.nvim", name = "modus", priority = 1000 },
+
 	{
 		"folke/tokyonight.nvim",
 		lazy = false,
@@ -767,7 +769,7 @@ end, { desc = "Lazy[G]it in current folder" })
 -- Toggle between Day (Kanagawa Lotus) and Night (Tokyonight)
 vim.keymap.set("n", "<leader>c", function()
 	if vim.g.colors_name == "tokyonight-night" then
-		vim.cmd("colorscheme kanagawa-lotus")
+		vim.cmd("colorscheme modus_operandi")
 		if fidget then
 			require("fidget").notify("Switching to Day mode")
 		end
