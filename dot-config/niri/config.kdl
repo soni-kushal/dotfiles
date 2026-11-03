@@ -63,7 +63,7 @@ output "DP-2" {
 
 layout {
 
-	gaps 7
+	gaps 25
 
 	background-color "transparent"
 
@@ -87,14 +87,14 @@ layout {
 
 		border {
 			on
-			width 2
+			width 7
 			active-color "#ffffff"
-			inactive-color "#404040"
+			inactive-color "#40404000"
 			urgent-color "#9b0000"
 		}
 
 		shadow {
-			on
+			off
 			softness 50
 			spread 6
 			offset x=0 y=5

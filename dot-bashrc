@@ -17,6 +17,6 @@ export CLUTTER_BACKEND=wayland
 export SDL_VIDEODRIVER=wayland
 export TERMINAL=kitty
 
-fastfetch
+fastfetch --disable-linewrap
 
 eval "$(starship init bash)"
