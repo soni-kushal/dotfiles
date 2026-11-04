@@ -63,7 +63,7 @@ output "DP-2" {
 
 layout {
 
-	gaps 25
+	gaps 20
 
 	background-color "transparent"
 
@@ -79,26 +79,25 @@ layout {
 		default-column-width { proportion 0.5; }
 
 		focus-ring {
-			off
-			width 2
-			active-color "#7ff8ff"
-			inactive-color "#505050"
+			on
+			width 5
+			active-color "#F2F2F0"
 		}
 
 		border {
 			on
 			width 5
-			active-color "#ffffff"
+			active-color "#f2f2f000"
 			inactive-color "#40404000"
 			urgent-color "#9b0000"
 		}
 
 		shadow {
 			off
-			softness 50
-			spread 6
-			offset x=0 y=5
-			color "#0009"
+			softness 10
+			spread 1
+			offset x=0 y=0
+			color "#000000"
 		}
 
 		tab-indicator {
@@ -142,6 +141,13 @@ layer-rule {
 	match namespace="^wallpaper$"
 	place-within-backdrop true
 }
+
+// layer-rule {
+// 	match namespace="^launcher$"
+// 	background-effect {
+// 		blur true
+// 	}
+// }
 
 // window-rule {
 // 	match is-focused=false

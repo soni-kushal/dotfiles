@@ -4,10 +4,31 @@ normal = { family = "Hasklug Nerd Font" }
 
 size = 14
 
-[colors.primary]
-
-background = "#0c0d12"
-
 [window]
 
 opacity = 0.85
+
+
+[colors.primary]
+
+background = "#09090C"
+
+[colors.normal]
+black   = "#191C21"
+red     = "#C4777D"
+green   = "#8FAF9A"
+yellow  = "#C5A574"
+blue    = "#829DBB"
+magenta = "#A092B5"
+cyan    = "#7FA6A2"
+white   = "#D4D6DA"
+
+[colors.bright]
+black   = "#626873"
+red     = "#D9959A"
+green   = "#A9C5B0"
+yellow  = "#D6BA8D"
+blue    = "#9BB4D0"
+magenta = "#B4A5C8"
+cyan    = "#96BDB8"
+white   = "#F2F2F0"
