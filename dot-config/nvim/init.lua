@@ -732,42 +732,142 @@ vim.keymap.set("n", "<leader>z", ":ZenMode<CR>", { noremap = true, silent = true
 -- set leader and l to toggle twilight
 vim.keymap.set("n", "<leader>l", ":Twilight<CR>", { noremap = true, silent = true })
 
--- set leader and g to launch lazygit in a floating terminal, rooted in the folder of the current buffer
-local lazygit_group = vim.api.nvim_create_augroup("lazygit-float", { clear = true })
--- close the floating window when lazygit exits (press q inside lazygit to leave)
+-- -- set leader and g to launch lazygit in a floating terminal, rooted in the folder of the current buffer
+-- local lazygit_group = vim.api.nvim_create_augroup("lazygit-float", { clear = true })
+-- -- close the floating window when lazygit exits (press q inside lazygit to leave)
+-- vim.api.nvim_create_autocmd("TermClose", {
+-- 	group = lazygit_group,
+-- 	callback = function(args)
+-- 		local win = vim.fn.bufwinid(args.buf)
+-- 		if win ~= -1 and vim.api.nvim_win_get_config(win).relative ~= "" then
+-- 			vim.api.nvim_win_close(win, true)
+-- 		end
+-- 	end,
+-- })
+-- vim.keymap.set("n", "<leader>g", function()
+-- 	local launch_dir = vim.uv.cwd()
+-- 	local file = vim.api.nvim_buf_get_name(0)
+-- 	if file ~= "" then
+-- 		local dir = vim.fs.dirname(vim.fs.normalize(file))
+-- 		if vim.uv.fs_stat(dir) then
+-- 			launch_dir = dir
+-- 		end
+-- 	end
+-- 	local width = math.floor(vim.o.columns * 0.9)
+-- 	local height = math.floor(vim.o.lines * 0.9)
+-- 	local win = vim.api.nvim_open_win(vim.api.nvim_create_buf(false, true), true, {
+-- 		relative = "editor",
+-- 		width = width,
+-- 		height = height,
+-- 		col = math.floor((vim.o.columns - width) / 2),
+-- 		row = math.floor((vim.o.lines - height) / 2),
+-- 		border = "rounded",
+-- 	})
+-- 	vim.fn.jobstart("lazygit", { term = true, cwd = launch_dir })
+-- end, { desc = "Lazy[G]it in current folder" })
+
+-- ============================================================
+-- LAZYGIT
+-- Open LazyGit in a floating terminal window
+-- ============================================================
+
+local lazygit_group = vim.api.nvim_create_augroup("lazygit-float", {
+	clear = true,
+})
+
+-- Close the floating window when LazyGit exits
 vim.api.nvim_create_autocmd("TermClose", {
 	group = lazygit_group,
 	callback = function(args)
 		local win = vim.fn.bufwinid(args.buf)
-		if win ~= -1 and vim.api.nvim_win_get_config(win).relative ~= "" then
-			vim.api.nvim_win_close(win, true)
+
+		if win ~= -1 then
+			local config = vim.api.nvim_win_get_config(win)
+
+			-- Only close the window if it is floating
+			if config.relative ~= "" then
+				vim.api.nvim_win_close(win, true)
+			end
+		end
+
+		-- Clean up the terminal buffer
+		if vim.api.nvim_buf_is_valid(args.buf) then
+			vim.api.nvim_buf_delete(args.buf, { force = true })
 		end
 	end,
 })
+
+-- Open LazyGit
 vim.keymap.set("n", "<leader>g", function()
+	-- Find the directory of the current file
 	local launch_dir = vim.uv.cwd()
 	local file = vim.api.nvim_buf_get_name(0)
+
 	if file ~= "" then
 		local dir = vim.fs.dirname(vim.fs.normalize(file))
+
 		if vim.uv.fs_stat(dir) then
 			launch_dir = dir
 		end
 	end
-	local width = math.floor(vim.o.columns * 0.9)
-	local height = math.floor(vim.o.lines * 0.9)
-	local win = vim.api.nvim_open_win(vim.api.nvim_create_buf(false, true), true, {
+
+	-- Calculate floating window dimensions
+	local width = math.floor(vim.o.columns * 0.90)
+	local height = math.floor(vim.o.lines * 0.90)
+
+	-- Create an empty buffer for the terminal
+	local buf = vim.api.nvim_create_buf(false, true)
+
+	-- Open the floating window
+	local win = vim.api.nvim_open_win(buf, true, {
 		relative = "editor",
 		width = width,
 		height = height,
 		col = math.floor((vim.o.columns - width) / 2),
 		row = math.floor((vim.o.lines - height) / 2),
 		border = "rounded",
+		style = "minimal",
 	})
-	vim.fn.jobstart("lazygit", { term = true, cwd = launch_dir })
-end, { desc = "Lazy[G]it in current folder" })
+
+	-- Start LazyGit inside the floating window
+	vim.fn.termopen("lazygit", {
+		cwd = launch_dir,
+	})
+
+	-- Enter terminal mode so LazyGit receives keyboard input
+	vim.cmd("startinsert")
+end, {
+	desc = "Open LazyGit in a floating window",
+})
+
+-- Change Neovim's working directory to the
+-- directory currently selected in NvimTree
+
+vim.keymap.set("n", "<leader>cd", function()
+	local api = require("nvim-tree.api")
+
+	local node = api.tree.get_node_under_cursor()
+
+	if not node then
+		return
+	end
+
+	local path = node.absolute_path
+
+	-- If the selected item is a file, use its parent directory
+	if node.type ~= "directory" then
+		path = vim.fs.dirname(path)
+	end
+
+	vim.cmd.cd(vim.fn.fnameescape(path))
+
+	print("Working directory: " .. path)
+end, {
+	desc = "Change working directory to NvimTree selection",
+})
 
 -- Toggle between Day (Kanagawa Lotus) and Night (Tokyonight)
-vim.keymap.set("n", "<leader>c", function()
+vim.keymap.set("n", "<leader>cc", function()
 	if vim.g.colors_name == "tokyonight-night" then
 		vim.cmd("colorscheme modus_operandi")
 		if fidget then

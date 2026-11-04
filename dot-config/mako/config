@@ -3,21 +3,21 @@
 # Global settings
 
 layer=overlay
-default-timeout=7000
+default-timeout=12000
 on-notify=exec paplay /usr/share/sounds/freedesktop/stereo/message-new-instant.oga
 
 # Visual
 
 font=Hasklug Nerd Font Propo 11
-background-color=#000000CC
-text-color=#FFFFFF
-border-color=#FFFFFF
-border-size=1
+background-color=#1C1C20
+text-color=#E5E2E8
+border-color=#A78BC4
+border-size=2
 padding=10
 margin=20
 #border-radius=5
 width=400
-height=100
+height=300
 
 # Media/Icons
 
@@ -33,5 +33,5 @@ on-button-right=dismiss
 # Critical Notifications
 
 [urgency=high]
-border-color=#FF5555
+border-color=#D69B96
 ignore-timeout=1

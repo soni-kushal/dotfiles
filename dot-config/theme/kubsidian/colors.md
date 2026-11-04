@@ -1,5 +1,3 @@
-
-
 # OBSIDIAN / 01
 
 Monochrome · Terminal · Industrial · Muted
@@ -8,26 +6,26 @@ Monochrome · Terminal · Industrial · Muted
 
 | Name | Hex |
 |---|---|
-| Void | #090A0C |
-| Surface | #111317 |
-| Elevated | #191C21 |
-| Active Surface | #242830 |
+| Void | #09090C |
+| Base | #101119 |
+| Surface | #161722 |
+| Elevated | #9292A8 |
 
 ## Borders
 
 | Name | Hex |
 |---|---|
-| Border | #242830 |
-| Strong Border | #3A404A |
+| Active | #F2F2F0 |
+| Inactive | #3A404A |
 
 ## Typography
 
 | Name | Hex |
 |---|---|
 | Primary | #F2F2F0 |
-| Secondary | #D4D6DA |
-| Muted | #A1A6AF |
-| Disabled | #626873 |
+| Secondary | #C4C7CC |
+| Muted | #858B95 |
+| Disabled | #515660 |
 
 ## Accents
 
@@ -44,10 +42,10 @@ Monochrome · Terminal · Industrial · Muted
 
 | Name | Hex |
 |---|---|
-| Error | #C4777D |
-| Success | #8FAF9A |
-| Warning | #C5A574 |
-| Info | #829DBB |
+| Error | #D4777D |
+| Success | #91B89B |
+| Warning | #D4AD72 |
+| Info | #82A8D0 |
 
 ## Design Rules
 
@@ -56,31 +54,3 @@ Monochrome · Terminal · Industrial · Muted
 - Monochrome is the dominant visual language.
 - Use accent colors sparingly.
 - No neon colors or gradients.
-
-# OBSIDIAN - ANSI 16 Color Palette
-
-## Normal colors (0-7)
-
-| Index | Name | Hex |
-|---|---|---|
-| 0 | Black | #191C21 |
-| 1 | Red | #C4777D |
-| 2 | Green | #8FAF9A |
-| 3 | Yellow | #C5A574 |
-| 4 | Blue | #829DBB |
-| 5 | Magenta | #A092B5 |
-| 6 | Cyan | #7FA6A2 |
-| 7 | White | #D4D6DA |
-
-## Bright colors (8-15)
-
-| Index | Name | Hex |
-|---|---|---|
-| 8 | Bright Black | #626873 |
-| 9 | Bright Red | #D9959A |
-| 10 | Bright Green | #A9C5B0 |
-| 11 | Bright Yellow | #D6BA8D |
-| 12 | Bright Blue | #9BB4D0 |
-| 13 | Bright Magenta | #B4A5C8 |
-| 14 | Bright Cyan | #96BDB8 |
-| 15 | Bright White | #F2F2F0 |

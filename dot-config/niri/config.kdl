@@ -39,8 +39,8 @@ input {
 }
 
 output "eDP-1" {
-	// mode "1920x1080@60.033" //thinkpad
-	mode "1920x1080@59.990" //g14
+	mode "1920x1080@60.033" //thinkpad
+	// mode "1920x1080@59.990" //g14
 	// mode "1920x1080@143.981" //g14 high refresh
 	scale 1
 	transform "normal"
@@ -87,10 +87,10 @@ layout {
 
 		border {
 			on
-			width 7
-			active-color "#ffffff"
-			inactive-color "#40404000"
-			urgent-color "#9b0000"
+			width 5
+			active-color "#F2F2F0"
+			inactive-color "#39363F00"
+			urgent-color "#D69B96"
 		}
 
 		shadow {
@@ -225,6 +225,7 @@ binds {
 	//Resize windows
 	Mod+Ctrl+F { expand-column-to-available-width; }
 	Mod+F { maximize-column; }
+	Mod+Alt+F { maximize-window-to-edges; }
 	Mod+Shift+F { fullscreen-window; }
 	Mod+R { switch-preset-column-width; }
 	Mod+Minus { set-column-width "-10%"; }

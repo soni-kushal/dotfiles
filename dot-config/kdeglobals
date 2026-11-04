@@ -17,3 +17,7 @@ Sort hidden files last=false
 Sort reversed=false
 Speedbar Width=144
 View Style=Simple
+
+[PreviewSettings]
+EnableRemoteFolderThumbnail=false
+MaximumRemoteSize=0

@@ -1,5 +1,5 @@
 [Wallet]
-Default Wallet=Default keyring
+Default Wallet=Default Keyring
 First Use=false
 
 [org.freedesktop.secrets]
