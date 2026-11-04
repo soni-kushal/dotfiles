@@ -232,6 +232,7 @@ binds {
 	//Resize windows
 	Mod+Ctrl+F { expand-column-to-available-width; }
 	Mod+F { maximize-column; }
+	Mod+Alt+F { maximize-window-to-edges; }
 	Mod+Shift+F { fullscreen-window; }
 	Mod+R { switch-preset-column-width; }
 	Mod+Minus { set-column-width "-10%"; }
