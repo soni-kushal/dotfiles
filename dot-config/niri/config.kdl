@@ -63,7 +63,7 @@ output "DP-2" {
 
 layout {
 
-	gaps 20
+	gaps 17
 
 	background-color "transparent"
 
@@ -80,13 +80,13 @@ layout {
 
 		focus-ring {
 			on
-			width 5
+			width 2
 			active-color "#F2F2F0"
 		}
 
 		border {
 			on
-			width 5
+			width 7
 			active-color "#f2f2f000"
 			inactive-color "#40404000"
 			urgent-color "#9b0000"
