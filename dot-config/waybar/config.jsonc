@@ -5,7 +5,7 @@
 	"spacing": 3,
 	"margin": "0px 0px 0px 0px",
 
-	"modules-left": ["custom/launcher","tray","niri/window"],
+	"modules-left": ["custom/launcher","tray","niri/window","custom/killwindow"],
 	"modules-center": ["clock"],
 	"modules-right": ["cpu","temperature","memory","network","custom/extmon","backlight","pulseaudio","custom/tlp","battery","custom/power"],
 
@@ -25,7 +25,7 @@
 		"format-full": "{icon} {capacity}%",
 		"format-charging": " {icon} {capacity}%",
 		"format-plugged": " {icon} {capacity}%",
-		"format-icons": ["󰂎","󰁺","󰁻","󰁼","󰁽","󰁾","󰁿","󰂀","󰂁","󰂂","󰁹"],
+		"format-icons": ["󰂎","󰁺","󰁻","󰁼","󰁽","󰁾","󰁿","󰂀","󰂁","󰂂","󰁹"]
 	},
 
 	"clock": {
@@ -54,6 +54,13 @@
 		"format": "󰣇",
 		"on-click": "fuzzel --anchor top-left --x-margin 10 --y-margin 10 --cache /dev/null",
 		"tooltip": false
+	},
+
+	"custom/killwindow": {
+		"format": "[X]",
+		"tooltip": true,
+		"tooltip-text": "Close active window",
+		"on-click": "niri msg action close-window"
 	},
 
 	// "mpd": {
@@ -113,12 +120,12 @@
 		"format-ethernet": "󰈀 {ipaddr}/{cidr}",
 		"tooltip-format": "{ifname}: {ipaddr}/{cidr} via {gwaddr} 󰩠",
 		"format-linked": "{ifname} (No IP) ",
-		"format-disconnected": "󰌙 Disconnected",
+		"format-disconnected": "󰌙 Disconnected"
 	},
 
 	"niri/window": {
 		"tooltip": false,
-		"max-length": 70,
+		"max-length": 70
 	},
 
 	"pulseaudio": {
