@@ -166,7 +166,7 @@ spawn-at-startup "swayidle" "-w" "before-sleep" "swaylock -f" "-c" "191623"
 spawn-at-startup "swaybg" "-i" "/home/billu/Pictures/wallpapers/snowy_mountain.jpg" "-m" "fill"
 spawn-at-startup "waybar"
 spawn-at-startup "/usr/lib/polkit-kde-authentication-agent-1"
-spawn-at-startup "/home/billu/.local/bin/osd-bar"
+spawn-at-startup "/home/billu/.local/bin/osd-bar.sh"
 
 hotkey-overlay {
 	skip-at-startup
