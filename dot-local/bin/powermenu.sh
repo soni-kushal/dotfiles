@@ -5,7 +5,7 @@ entries=" Power off\n Reboot\n Suspend\n󰗽 Logout\n󰷛 Lock"
 
 # Use fuzzel in dmenu mode to pick an option
 # You can customize the look here (width, lines, etc.)
-selected=$(echo -e "$entries" | fuzzel --dmenu --prompt=" Power: " --lines=5 --width=20)
+selected=$(echo -e "$entries" | fuzzel --dmenu --prompt=" Power: " --lines=5 --width=15)
 
 # Execute the command based on selection
 case $selected in

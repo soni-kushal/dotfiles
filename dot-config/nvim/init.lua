@@ -186,6 +186,22 @@ require("lazy").setup({
 		opts = {},
 	},
 
+	{ -- for rendering in line hexcolors
+		"catgoose/nvim-colorizer.lua",
+		event = "BufReadPre",
+		opts = {
+			filetypes = { "*" },
+			options = {
+				parsers = {
+					hex = { default = true },
+				},
+				display = {
+					mode = "background",
+				},
+			},
+		},
+	},
+
 	{ -- twilight for dimming unfocused text
 		"folke/twilight.nvim",
 		config = function()

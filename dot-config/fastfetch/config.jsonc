@@ -1,42 +1,110 @@
+//
+// {
+// 	"$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+// 	"logo": {
+// 		"type": "small",
+// 		"height": 5,
+// 		"width": 10,
+// 		"padding": {
+// 			"top":1,
+// 			"left":3,
+// 			"bottom":1
+// 		}
+// 	},
+// 	"display": {"separator": " "},
+// 	"modules": [
+// 		"break",
+// 		{"type":"title","key":"                    User "},
+// 		{"type":"custom","format":"┌───────────────────────────────────────────────────────┐"},
+// 		{"type":"os","key":"   "},
+// 		{"type":"host","key":"   "},
+// 		{"type":"kernel","key":"   "},
+// 		{"type":"custom","format":"  ─────────────────────────────────────────────────────  "},
+// 		{"type":"de"},
+// 		{"type":"wm","key":"   "},
+// 		{"type":"terminal","key":"   "},
+// 		{"type":"terminalfont","key":"  󰛖 "},
+// 		{"type":"packages","key":"   "},
+// 		{"type":"custom","format":"  ─────────────────────────────────────────────────────  "},
+// 		{"type":"cpu","key":"   "},
+// 		{"type":"gpu","key":"   ","format":"{name}"},
+// 		{"type":"custom","format":"  ─────────────────────────────────────────────────────  "},
+// 		{"type":"memory","key":"   "},
+// 		{"type":"swap","key":"  󰾶 "},
+// 		{"type":"disk","key":"   "},
+// 		{"type":"localip", "key":"  󰌘 "},
+// 		{"type":"battery","key":"   "},
+// 		{"type":"custom","format":"  ─────────────────────────────────────────────────────  "},
+// 		{"type":"uptime","key":"   "},
+// 		{"key":"   ","type":"disk","folders":"/","format":"{create-time:10} ({days} days)"},
+// 		{"type":"custom","format":"└───────────────────────────────────────────────────────┘"},
+// 		{"type":"colors","paddingLeft":21,"symbol":"square"}
+//   ]
+// }
+//
 {
 	"$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
 	"logo": {
 		"type": "small",
-		"height": 5,
-		"width": 10,
+		// "type": "spin",
+        // "source": "arch_small",
+        "color": {
+            "1": "#82a8d0",
+            "2": "#829dbb"
+        },
+        "position": "left",
 		"padding": {
-			"top":1,
-			"left":3,
-			"bottom":1
+			"top":8,
+			"left":0,
+            "right":1,
+			//"left":18,
+			"bottom":7
 		}
+        // "spin": {
+        //     "speed": {
+        //         "perRound": 61
+        //     },
+        //     "tilt": 30
+        // }
 	},
-	"display": {"separator": " "},
-	"modules": [
-		"break",
-		{"type":"title","key":"                    User "},
-		{"type":"custom","format":"┌───────────────────────────────────────────────────────┐"},
-		{"type":"os","key":"   "},
-		{"type":"host","key":"   "},
-		{"type":"kernel","key":"   "},
-		{"type":"custom","format":"  ─────────────────────────────────────────────────────  "},
-		{"type":"de"},
-		{"type":"wm","key":"   "},
-		{"type":"terminal","key":"   "},
-		{"type":"terminalfont","key":"  󰛖 "},
-		{"type":"packages","key":"   "},
-		{"type":"custom","format":"  ─────────────────────────────────────────────────────  "},
-		{"type":"cpu","key":"   "},
-		{"type":"gpu","key":"   ","format":"{name}"},
-		{"type":"custom","format":"  ─────────────────────────────────────────────────────  "},
-		{"type":"memory","key":"   "},
-		{"type":"swap","key":"  󰾶 "},
-		{"type":"disk","key":"   "},
-		{"type":"localip", "key":"  󰌘 "},
-		{"type":"battery","key":"   "},
-		{"type":"custom","format":"  ─────────────────────────────────────────────────────  "},
-		{"type":"uptime","key":"   "},
-		{"key":"   ","type":"disk","folders":"/","format":"{create-time:10} ({days} days)"},
-		{"type":"custom","format":"└───────────────────────────────────────────────────────┘"},
-		{"type":"colors","paddingLeft":21,"symbol":"square"}
-  ]
+    "general": {},
+    "display": {
+        "separator": "",
+        "constants": [
+            "\u001b[46C",  // $1: Move cursor forward 77 columns (adjust if needed)
+            "\u001b[46D",  // $2: Move cursor back 77 columns (not used, defined anyway)
+            "\u001b[88C",  // $3: Move cursor to max width (wide term), or last column (narrow term)
+            "\u001b[20D",  // $4: Move back 20 columns for the color block (both lines)
+            "───────────────────────────────────────────────"
+            ],
+            "key": {
+                "width": 3
+            }
+    },
+    "modules": [
+        { "key": "┌{$5}┐", "type": "custom", "keyColor": "#F2F2F0" },
+        { "key": " {$1}│", "type": "title", "format": "{user-name}", "keyColor": "#F2F2F0"  },
+        { "key": " {$1}│", "type": "title", "format": "{host-name}", "keyColor": "#F2F2F0"   },
+        { "key": "└{$5}┐", "type": "custom", "keyColor": "#F2F2F0"   },
+        { "key": "┌{$5}┘", "type": "custom", "keyColor": "#F2F2F0" },
+        { "type": "kernel", "key": " {$1}│", "keyColor": "#829DBB" },
+ 		{ "key": " {$1}│", "type": "packages", "keyColor": "#829DBB" },
+        { "key": "└{$5}┐", "type": "custom", "keyColor": "#F2F2F0" },
+        { "key": "┌{$5}┘", "type": "custom", "keyColor": "#F2F2F0" },
+        { "key": " {$1}│", "type": "host", "format": "{1}", "keyColor": "#A092B5"  },
+        { "key": " {$1}│", "type": "cpu", "showPeCoreCount": true, "keyColor": "#A092B5"  },
+        { "key": "󰢮 {$1}│", "type": "gpu", "format": "{2}", "keyColor": "#A092B5"  },
+        { "key": "└{$5}┐", "type": "custom", "keyColor": "#F2F2F0" },
+        { "key": "┌{$5}┘", "type": "custom", "keyColor": "#F2F2F0" },
+        { "key": " {$1}│", "type": "memory", "keyColor": "#91b89b" },
+        { "key": "󰉉 {$1}│", "type": "disk", "folders": "/", "keyColor": "#91b89b" },
+ 		{ "key": "󰌘 {$1}│", "type": "localip", "keyColor": "#91b89b" },
+ 		{ "key": " {$1}│", "type": "battery", "keyColor": "#91b89b" },
+        { "key": "└{$5}┐", "type": "custom", "keyColor": "#F2F2F0" },
+        { "key": "┌{$5}┘", "type": "custom", "keyColor": "#F2F2F0" },
+        { "key": " {$1}│", "type": "disk", "folders":"/", "format":"{create-time:10} ({days} days)", "keyColor": "#B98D99" },
+        { "key": " {$1}│", "type": "uptime", "keyColor": "#B98D99"  },
+        { "key": "└{$5}┘", "type": "custom", "keyColor": "#F2F2F0" },
+ 		{"type":"colors","paddingLeft":18,"symbol":"square"}
+    ]
 }

@@ -187,15 +187,14 @@ binds {
 	Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock" "-c" "191623"; }
 	Mod+Shift+Q { spawn-sh "/home/billu/.local/bin/powermenu.sh"; }
 	Mod+Shift+P { spawn-sh "/home/billu/.local/bin/batteryoptions.sh"; }
+	Mod+Shift+O { spawn-sh "/home/billu/.local/bin/audio-output.sh"; }
     // Toggles Waybar visibility
     Mod+Shift+B hotkey-overlay-title="Toggle Statusbar visibility" { spawn "killall" "-SIGUSR1" "waybar"; }
 
 	//Applications
 	Alt+Space hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
 	Mod+T hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
-	Mod+N hotkey-overlay-title="Open editor: Neovim" {  spawn "kitty" "-e" "tmux" "new-session" "-A" "-s" "nvim" "nvim" \
-		";" "set-option" "-t" "nvim" "status" "off";
-	}
+	Mod+N hotkey-overlay-title="Open editor: Neovim" {  spawn "kitty" "-e" "tmux" "new-session" "-A" "-s" "nvim" "nvim"; }
 	Mod+E hotkey-overlay-title="File Explorer: Dolphin" { spawn "dolphin"; }
 	// Mod+B hotkey-overlay-title="New Window: Helium Browser" { spawn "helium-browser"; }
 	Mod+B hotkey-overlay-title="New Window: Zen Browser" { spawn "zen-browser"; }
