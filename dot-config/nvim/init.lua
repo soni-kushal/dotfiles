@@ -699,6 +699,32 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
+-- autosave text files after 1 second of inactivity
+vim.opt.updatetime = 1000
+local autosave = vim.api.nvim_create_augroup("AutoSave", {
+	clear = true,
+})
+vim.api.nvim_create_autocmd({
+	"TextChanged",
+	"TextChangedI",
+	"BufLeave",
+}, {
+	group = autosave,
+	pattern = {
+		"*.md",
+		"*.txt",
+		"*.tex",
+		"*.typ",
+		"*.org",
+		"*.rst",
+	},
+	callback = function()
+		if vim.bo.modified then
+			vim.cmd("silent! update")
+		end
+	end,
+})
+
 vim.api.nvim_create_user_command("MarkdownToPDF", "!pandoc % -o %:r.pdf", {})
 
 -- ---------------------------

@@ -89,7 +89,7 @@ layout {
 			width 7
 			active-color "#f2f2f000"
 			inactive-color "#40404000"
-			urgent-color "#9b0000"
+			urgent-color "#d4777d"
 		}
 
 		shadow {
@@ -102,7 +102,7 @@ layout {
 
 		tab-indicator {
 			on
-			active-color "#ffffff"
+			active-color "#f2f2f0"
 			inactive-color "#404040"
 		}
 
@@ -152,6 +152,7 @@ layer-rule {
         color "#000000"
     }
 }
+
 // layer-rule {
 // 	match namespace="^launcher$"
 // 	background-effect {
