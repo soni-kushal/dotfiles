@@ -8,13 +8,13 @@ on-notify=exec paplay /usr/share/sounds/freedesktop/stereo/message-new-instant.o
 
 # Visual
 
-font=Hasklug Nerd Font Propo 11
+font=Hasklug Nerd Font Propo 13
 background-color=#09090CD9
 text-color=#F2F2F0
 border-color=#F2F2F0
 border-size=3
 padding=10
-margin=20
+margin=0
 #border-radius=5
 width=400
 height=300
@@ -35,3 +35,12 @@ on-button-right=dismiss
 [urgency=high]
 border-color=#D4777D
 ignore-timeout=1
+
+# osd-bar specific
+
+[app-name="osd-bar"]
+on-notify=none
+anchor=bottom-center
+text-alignment=center
+padding=10
+margin=0

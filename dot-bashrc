@@ -9,6 +9,8 @@ alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 PS1='[\u@\h \W]\$ '
 
+alias sticky='tmux attach -t sticky || tmux new-session -s sticky -c ~/notes/sticky'
+
 export PATH="$HOME/.local/bin:$PATH"
 export EDITOR=nvim
 export QT_QPA_PLATFORM=wayland

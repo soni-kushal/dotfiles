@@ -93,7 +93,7 @@ layout {
 		}
 
 		shadow {
-			off
+			on
 			softness 10
 			spread 1
 			offset x=0 y=0
@@ -142,6 +142,16 @@ layer-rule {
 	place-within-backdrop true
 }
 
+layer-rule {
+    match namespace="^notifications$"
+    shadow {
+        on
+        softness 10
+        spread 1
+        offset x=0 y=0
+        color "#000000"
+    }
+}
 // layer-rule {
 // 	match namespace="^launcher$"
 // 	background-effect {
@@ -163,10 +173,10 @@ window-rule {
 
 spawn-at-startup "dbus-update-activation-environment" "--systemd" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP=niri"
 spawn-at-startup "swayidle" "-w" "before-sleep" "swaylock -f" "-c" "191623"
-spawn-at-startup "swaybg" "-i" "/home/billu/Pictures/wallpapers/snowy_mountain.jpg" "-m" "fill"
+spawn-at-startup "swaybg" "-i" "/home/billu/Pictures/wallpapers/wallhaven-w5weqp.jpg" "-m" "fill"
 spawn-at-startup "waybar"
 spawn-at-startup "/usr/lib/polkit-kde-authentication-agent-1"
-spawn-at-startup "/home/billu/.local/bin/osd-bar.sh"
+spawn-sh-at-startup "/home/billu/.local/bin/osd-bar.sh"
 
 hotkey-overlay {
 	skip-at-startup

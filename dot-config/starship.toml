@@ -28,8 +28,8 @@ $character"""
 
 [username]
 show_always = true
-style_user = "bg:#3b4252 fg:#eceff4 bold"
-style_root = "bg:#3b4252 fg:#bf616a bold"
+style_user = "bg:#3b4252 fg:#f2f2f0 bold"
+style_root = "bg:#3b4252 fg:#b98d99 bold"
 format = "[ $user ]($style)"
 
 # ─────────────────────────────────────────────
@@ -38,15 +38,15 @@ format = "[ $user ]($style)"
 
 [hostname]
 ssh_only = false
-format = "[ $hostname ](bg:#434c5e fg:#eceff4 bold)"
-style = "bg:#434c5e fg:#eceff4"
+format = "[ $hostname ](bg:#434c5e fg:#f2f2f0 bold)"
+style = "bg:#434c5e fg:#f2f2f0"
 
 # ─────────────────────────────────────────────
 # DIRECTORY
 # ─────────────────────────────────────────────
 
 [directory]
-style = "bg:#5e81ac fg:#eceff4 bold"
+style = "bg:#5e81ac fg:#f2f2f0 bold"
 format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
@@ -88,7 +88,7 @@ deleted = "✘${count} "
 [cmd_duration]
 min_time = 500
 show_milliseconds = false
-style = "bg:#3b4252 fg:#ebcb8b bold"
+style = "bg:#3b4252 fg:#b68e73 bold"
 format = "[  $duration ]($style)"
 
 # ─────────────────────────────────────────────
